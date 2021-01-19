@@ -1,0 +1,100 @@
+import java.util.*;
+
+class Stack
+{
+    private int arr[];
+    private int size;
+    private int currIndex = -1;
+    
+    Stack(int size)
+    {
+        this.size = size;
+        arr = new int[size];
+    }
+    
+    public void push(int data)
+    {
+        if(currIndex < (size-1))
+        {
+            currIndex++;
+            arr[currIndex] = data;
+        }
+        else
+        {
+            System.out.println("Stack is overflow");
+        }
+    }
+    
+    public int pop()
+    {
+        if(currIndex < 0)
+        {
+            System.out.println("Stack is underflow");
+            return -1;
+        }
+        else
+        {
+            int ele = arr[currIndex];
+            currIndex--;
+            return ele;
+        }
+    }
+    
+    public boolean isEmpty()
+    {
+        if(currIndex == -1)
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+    
+    public boolean isFull()
+    {
+        if(currIndex == (size - 1))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public void printStack()
+    {
+        for(int i=0;i <= currIndex;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+        System.out.println();
+    }
+    
+}
+
+// Driver Function
+public class MyClass {
+    public static void main(String args[]) {
+      
+      Stack st = new Stack(3);
+      
+      st.push(2);
+      st.push(3);
+      st.push(4);
+      
+      
+      
+      // print values of stack
+      st.printStack();
+      
+      
+      
+      // it gives you stack overflow beacuse stack is full
+      st.push(5);
+      
+      
+    }
+}
